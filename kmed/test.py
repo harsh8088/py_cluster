@@ -39,7 +39,7 @@ def main():
     dist = pairwise_distances(X, metric='euclidean')
 
     # k-medoids algorithm
-    km = KMedoids(distance_matrix=dist, n_clusters=10)
+    km = KMedoids(distance_matrix=dist, n_clusters=4)
     km.run(max_iterations=10, tolerance=0.001)
 
     print(km.clusters)

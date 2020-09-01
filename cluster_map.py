@@ -14,11 +14,11 @@ def map_clusters(n_list, n_clusters):
                   [28.582915, 0], [28.635639, 0], [28.464873, 0]])
     # x = np.append(x, n_list, axis=0)
     # define the model
-    model = Birch(threshold=0.01, n_clusters=3)
+    model = Birch(threshold=0.01, n_clusters=n_clusters)
     # fit the model
-    model.fit(x)
+    model.fit(n_list)
     # assign a cluster to each example
-    yhat = model.predict(x)
+    yhat = model.predict(n_list)
     # retrieve unique clusters
     clusters = unique(yhat)
     dic = {}
@@ -28,7 +28,7 @@ def map_clusters(n_list, n_clusters):
         row_ix = where(yhat == cluster)
         # 	# create scatter of these samples
         dic[cluster] = row_ix[0]
-        pyplot.scatter(x[row_ix, 0], x[row_ix, 1])
+        # pyplot.scatter(x[row_ix, 0], x[row_ix, 1])
     # print(dic)
-    pyplot.show()
+    # pyplot.show()
     return dic
